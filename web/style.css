@@ -86,7 +86,12 @@ nav a:hover {
 /* SECTION */
 .section {
   padding: 100px 40px;
+  text-align: center; /* ubah dari center ke left */
+}
+
+#tentang h2 {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .grid {
@@ -467,4 +472,176 @@ footer {
 .logo-img:hover {
   transform: scale(1.1);      /* Membesar sedikit */
   transition: transform 0.3s ease;
+}
+.fakhr {
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  color: white;
+  animation: glowMove 2s infinite alternate;
+}
+
+/* Glow bergerak */
+@keyframes glowMove {
+  0% {
+    text-shadow:
+      0 0 5px #00c3ff,
+      0 0 10px #00c3ff;
+  }
+  100% {
+    text-shadow:
+      0 0 15px #00c3ff,
+      0 0 30px #168fb4;
+  }
+}
+
+/* Efek shine lewat */
+.fakhr::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.7),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.fakhr:hover::after {
+  animation: shineMove 0.8s forwards;
+}
+
+@keyframes shineMove {
+  100% {
+    left: 150%;
+  }
+}
+
+.tentang-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.tentang-text {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.tentang-img {
+  flex: 1;
+  text-align: center;
+  margin-top: 30px; /* bikin turun */
+}
+
+.tentang-img img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+
+.tentang-img img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== ORGANISASI PREMIUM STYLE ===== */
+
+.org-container{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:60px;
+}
+
+.org-card{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:40px;
+  padding:40px;
+  border-radius:25px;
+  background:linear-gradient(135deg,#4c2cab,#009bf4);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(0, 0, 0, 0.2);
+  transition:0.4s;
+}
+
+.org-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
+
+.org-text{
+  flex:1;
+}
+
+.org-text small{
+  opacity:0.7;
+}
+
+.org-text h2{
+  font-size:36px;
+  margin:10px 0;
+}
+
+.org-text p{
+  font-size:14px;
+  opacity:0.8;
+}
+
+.org-image{
+  flex:1;
+  text-align:center;
+}
+
+.org-image img{
+  width:100%;
+  max-width:280px;
+  border-radius:20px;
+  transition:0.4s;
+}
+
+.org-image img:hover{
+  transform:scale(1.05) rotateY(10deg);
+}
+
+.org-image h3{
+  margin-top:15px;
+}
+
+.org-image span{
+  opacity:0.7;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .org-card{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .org-text h2{
+    font-size:36px;
+  }
+}
+
+.section-title{
+  text-align:center;
+  font-size:40px;
+  margin-bottom:60px;
+  font-weight:700;
+  text-shadow:0 0 15px #00c3ff;
 }
