@@ -19,7 +19,7 @@ menuToggle.addEventListener("click", function(){
 });
 
 // LIGHTBOX EFFECT
-let images = document.querySelectorAll(".organisasi-card img");
+let images = document.querySelectorAll(".organisasi-card img, .gallery img");
 let lightbox = document.getElementById("lightbox");
 let lightboxImg = document.getElementById("lightboxImg");
 let closeBtn = document.querySelector(".close");
@@ -39,4 +39,22 @@ lightbox.addEventListener("click", function(e){
   if(e.target === lightbox){
     lightbox.style.display = "none";
   }
+});
+
+const animElements = document.querySelectorAll(
+  '.slide-left, .slide-right, .fade-up'
+);
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show'); // biar berulang
+    }
+  });
+}, { threshold: 0.2 });
+
+animElements.forEach(el => {
+  observer.observe(el);
 });
